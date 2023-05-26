@@ -80,6 +80,4 @@ INSERT OVERWRITE DIRECTORY 'output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 SELECT concat_ws(':', c5_uppercase) AS concat_c5 FROM (SELECT c1, c2, c3, c4, COLLECT_LIST(upper(exploded_c5)) AS c5_uppercase, c6
 FROM tbl0 LATERAL VIEW explode(c5) tbl0_exploded AS exploded_c5
-GROUP BY c1, c2, c3, c4, c6) B
-
-;
+GROUP BY c1, c2, c3, c4, c6) B;
