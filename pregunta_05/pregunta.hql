@@ -81,4 +81,4 @@ SELECT YEAR(c4) AS year, c5_value, COUNT(*) AS count
 FROM tbl0
 LATERAL VIEW explode(c5) exploded_table AS c5_value
 GROUP BY YEAR(c4), c5_value
-ORDER BY year;
+ORDER BY year,c5_value;
